@@ -67,7 +67,7 @@ toplevel:
 
 toplevel_list:
   |   { [] }
-  | toplevel; toplevel_list; 
+  | toplevel; toplevel_list;
       { $1 :: $2 }
   ;
 
@@ -96,7 +96,7 @@ statement:
 
 statement_list:
   |   { [] }
-  | statement; statement_list; 
+  | statement; statement_list;
       { $1 :: $2 }
   ;
 
@@ -140,17 +140,17 @@ expression:
 
 expression_list:
   |   { [] }
-  | expression; 
+  | expression;
       { [$1] }
-  | expression; COMMA; expression_list; 
+  | expression; COMMA; expression_list;
       { $1 :: $3 }
   ;
 
 identifier_list:
   |   { [] }
-  | IDENTIFIER; 
+  | IDENTIFIER;
       { [$1] }
-  | IDENTIFIER; COMMA; identifier_list; 
+  | IDENTIFIER; COMMA; identifier_list;
       { $1 :: $3 }
   ;
 

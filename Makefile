@@ -1,5 +1,5 @@
 build: _obuild
-	ocp-build build batsh
+	ocp-build --env-warnings --project-warnings build batsh
 	ln -sf _obuild/batsh/batsh.asm batsh
 
 LIBDIR=$(CAML_LD_LIBRARY_PATH)/..
@@ -31,3 +31,10 @@ distclean:
 	rm -rf _obuild
 
 .PHONY: build
+
+
+PROC= src/main
+OPT= -I src -r -use-menhir -tag thread -use-ocamlfind
+
+main:
+	ocamlbuild $(OPT) $(PROC).byte

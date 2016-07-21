@@ -1,0 +1,8 @@
+<src/symbol_table.ml>: package(ppx_sexp_conv)
+<src/*_ast.ml>: package(ppx_sexp_conv)
+<src/*_{transform,compile}.ml>: package(dlist)
+
+<src/main.*>: package(cmdliner,dlist)
+
+true: package(core,core_kernel)
+true: thread
